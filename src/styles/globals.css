@@ -2,26 +2,302 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* src/styles/global.css */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public../../public/fonts/Inter-Regular.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-Black.ttf") format("truetype");
+  font-weight: 900; /* Black */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-Bold.ttf") format("truetype");
+  font-weight: 700; /* Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-ExtraBold.ttf") format("truetype");
+  font-weight: 800; /* ExtraBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-ExtraLight.ttf") format("truetype");
+  font-weight: 200; /* ExtraLight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-Light.ttf") format("truetype");
+  font-weight: 300; /* Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-Medium.ttf") format("truetype");
+  font-weight: 500; /* Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-SemiBold.ttf") format("truetype");
+  font-weight: 600; /* SemiBold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-Thin.ttf") format("truetype");
+  font-weight: 100; /* Thin */
+  font-style: normal;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Inter", sans-serif !important;
+}
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+* {
+  line-height: 1.6 !important;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+/* body {
+  line-height: 1;
+} */
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* All content side padding to separate from the Website "Walls" */
+
+@media only screen and (min-width: 768px) {
+  .md-grid-cols-1fr-2fr {
+    grid-template-columns: 1fr 1.14fr;
+  }
+
+  .md-grid-cols-2fr-1fr {
+    grid-template-columns: 1.14fr 1fr;
+  }
+}
+
+.text-shadow-black {
+  text-shadow: 3px 3px 1px #000;
+}
+
+.text-shadow-white {
+  text-shadow: 0px 0px 3px #fff;
+}
+
+.transition-max-height {
+  transition: max-height 0.5s;
+}
+
+.hamburger-spin-positive {
+  transform: rotateZ(45deg) scaleX(1.2) translate(6px, 6px);
+}
+
+.hamburger-spin-negative {
+  transform: rotateZ(-45deg) scaleX(1.2) translate(6px, -6px);
+}
+
+.transition-02s {
+  transition: 0.2s;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes loading {
+  0% {
+    content: ".";
+  }
+  25% {
+    content: "..";
+  }
+  50% {
+    content: "...";
+  }
+}
+
+.loading-dots::before {
+  content: ".";
+  display: inline-block;
+  animation: loading 1.5s infinite steps(1);
+}
+
+:focus-visible {
+  outline: 4px solid #6a4caf; /* Change the color as needed */
+  transition: outline 0.2s ease-in-out; /* Adjust the duration and timing function as needed */
+  position: relative;
+  z-index: 4000;
+}
+
+.invisble-text-screen-reader-only {
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+.underline-after {
+  position: relative;
+}
+
+.underline-after::after {
+  content: "";
+  display: block;
+  height: 2px; /* Set the height of the underline */
+  background-color: #007bff; /* Set the underline color to blue, matching link color */
+  position: absolute;
+  bottom: -2px; /* Adjust the distance of the underline from the text */
+  left: 0;
+  right: 0;
 }

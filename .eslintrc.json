@@ -1,3 +1,4 @@
 {
-  "extends": "next/core-web-vitals"
+  // ["next/babel] on extends to fix the Next Babel Error
+  "extends": ["next/babel", "next/core-web-vitals"]
 }
